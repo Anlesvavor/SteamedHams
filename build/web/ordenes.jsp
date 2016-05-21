@@ -4,6 +4,8 @@
     Author     : LeJesusjar
 --%>
 
+<%@page import="clases.Conexion"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -56,6 +58,10 @@
                 padding-left: 2px;
                     
             }
+            tr:hover
+            {
+                background-color: gray;
+            }
         </style>
     </head>
     <body>
@@ -71,7 +77,41 @@
         </div>
         
             <div class="fondo">
-                <center>huehuehuehue</center>
+                <center>
+                    
+                    <table  border="1" >
+                        <tr>
+                            <td>
+                                Id de la orden:
+                            </td>
+                            <td>
+                                Id del cliente:
+                            </td>
+                            <td>
+                                Id Platillo:
+                            </td>
+                            <td>
+                                Cantidad:
+                            </td>
+                        </tr>
+                        <%
+                            ResultSet rs;
+                            Conexion cnn = new Conexion();
+                            
+                            rs = cnn.consultar("select * from ordenes");
+                            
+                            while(rs.next()){
+                                out.println("<tr>");
+                                out.println("<td>" + rs.getString(1) + "</td>");
+                                out.println("<td>" + rs.getString(2) + "</td>");
+                                out.println("<td>" + rs.getString(3) + "</td>");
+                                out.println("<td>" + rs.getString(4) + "</td>" );
+                                out.println("</tr>");
+                            }
+                        %>
+                    </table>
+                    
+                </center>
             </div>
         
     </body>

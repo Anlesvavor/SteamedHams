@@ -53,7 +53,7 @@ public class OrdenSVT extends HttpServlet {
             int intCantidad = Integer.parseInt(request.getParameter("intCantidad"));
             
             
-            resultado = cnn.consultar("select idPlatillo from platillos where NomPlato = \"" + txtPlatillo + "\" ");
+            resultado = cnn.consultar("select idPlatillo from platillos where NomPlato = "+ "'" + txtPlatillo + "'");
             String idPlatillo = resultado.getString(1);
             
             cnn.ejecutarSQL("insert into ordenes values(" +
