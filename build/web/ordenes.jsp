@@ -48,6 +48,8 @@
             {
                 background-image: url(imagenes/fondo2.png);
                 border-radius: 10px;
+                padding: 10px;
+                margin: 10px;
             }
             .cuerpo
             {
@@ -58,10 +60,20 @@
                 padding-left: 2px;
                     
             }
-            tr:hover
-            {
-                background-color: gray;
+            table{
+                background-color: orange;
+                border-color: coral;
+                border-collapse: collapse;
+                
             }
+            th, td {
+                padding: 5px;
+            }
+            tr:hover
+            {   
+                background-color: orangered;
+            }
+            
         </style>
     </head>
     <body>
