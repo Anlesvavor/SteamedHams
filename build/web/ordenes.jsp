@@ -89,6 +89,10 @@
         </div>
         
             <div class="fondo">
+                <p>
+                    Se muestran las ordenes que se han hecho.
+                </p>
+                
                 <center>
                     
                     <table  border="1" >
