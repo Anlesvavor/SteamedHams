@@ -4,6 +4,8 @@
     Author     : LeJesusjar
 --%>
 
+<%@page import="clases.Conexion"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -105,6 +107,19 @@
               max-height: 30%;
               overflow: auto;
             }
+            table{
+                background-color: orange;
+                border-color: coral;
+                border-collapse: collapse;
+                
+            }
+            th, td {
+                padding: 5px;
+            }
+            tr:hover
+            {   
+                background-color: orangered;
+            }
     
         </style>
     </head>
@@ -113,13 +128,43 @@
             <div class="cuerpo">
                 <center><h2>Menú</h2></center>
             </div>
+        </div>    
             <div class="fondo">
                 <div class="cuerpo">
-                    <li>Caca</li>
+                    <center>
+                        <table>
+                            <tr>
+                                <td># Platillo</td>
+                                <td>Tipo</td>
+                                <td>Nombre Platillo</td>
+                                <td>Descripción</td>
+                                <td>Precio</td>
+                            </tr>
+
+                            <%
+                                ResultSet rs;
+                                Conexion cnn = new Conexion();
+
+                                rs=cnn.consultar("Select * from platillos");
+
+                                while(rs.next()){
+                                    out.println("<tr>");
+                                    out.println("<td>" +rs.getString(1)+ "</td>");
+                                    out.println("<td>" +rs.getString(2)+ "</td>");
+                                    out.println("<td>" +rs.getString(3)+ "</td>");
+                                    out.println("<td>" +rs.getString(4)+ "</td>");
+                                    out.println("<td>" +rs.getString(5)+ "</td>");
+
+                                    out.println("</tr>");
+                                }
+
+                            %>
+                        </table>
+                    </center>
                 </div>
             </div>
                 
-        </div>
+        
         
     </body>
 </html>

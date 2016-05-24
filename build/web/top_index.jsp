@@ -104,7 +104,8 @@
         <a href="pruebapopup.jsp" target="principal" ><button class="bonton" >prueba del popup</button></a>
         <a href="iniciosesion.jsp" target="principal" ><button class="bonton" >Inicio de sesión</button></a>
         <a href="menu.jsp" target="principal" ><button class="bonton" >Menú</button></a>
-        
-        
+        <a href="proveedores.jsp" target="principal" ><button class="bonton">Proveedores</button></a>
+        <a href="sucursales.jsp" target="principal" ><button class="bonton">Sucursales</button></a>
+        <a href="administracion.jsp" target="principal" ><button class="bonton">Administración</button></a>
     </body>
 </html>

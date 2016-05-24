@@ -36,7 +36,7 @@
 
         <frameset cols="*,1000px,*"  frameborder="no">
             <frame name="izquierda" src="blanco.jsp" frameborder="no" scrolling="no" />
-            <frame name="principal" src="primerpagina.jsp" frameborder="no" scrolling="no" />
+            <frame name="principal" src="primerpagina.jsp" frameborder="no" scrolling="yes" />
             <frame name="derecha" src="blanco.jsp" frameborder="no" scrolling="no" />
         </frameset>
     </frameset>

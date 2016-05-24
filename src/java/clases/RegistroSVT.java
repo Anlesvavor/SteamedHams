@@ -24,7 +24,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "RegistroSVT", urlPatterns = {"/RegistroSVT"})
 public class RegistroSVT extends HttpServlet {
     
+    
+    private CatalogoCliente catalogoCliente;
     private Conexion cnn;
+    private Cliente cliente;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -56,32 +59,24 @@ public class RegistroSVT extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
+            cnn = new Conexion();
+            cliente = new Cliente();
             //processRequest(request, response);
-            String txtNombre = request.getParameter("txtNombre");
-            String txtAPaterno = request.getParameter("txtAPaterno");
-            String txtAMaterno = request.getParameter("txtAMaterno");
-            String txtCalle = request.getParameter("txtCalle");
-            String txtNumeroCasa = (request.getParameter("txtNumeroCasa"));
-            String txtColonia = request.getParameter("txtColonia");
-            String txtCodigoPostal = request.getParameter("txtCodigoPotal");
-            String txtNumeroCelular = (request.getParameter("txtCelular"));
+            cliente.setNombre(request.getParameter("txtNombre"));
+            cliente.setaPaterno(request.getParameter("txtAPaterno"));
+            cliente.setaMaterno(request.getParameter("txtAMaterno"));
+            cliente.setCalle(request.getParameter("txtCalle"));
+            cliente.setNumeroCasa(request.getParameter("txtNumeroCasa"));
+            cliente.setColonia(request.getParameter("txtColonia"));
+            cliente.setCodigoPostal(request.getParameter("txtCodigoPostal"));
+            cliente.setCelular(request.getParameter("txtCelular"));
             
-            try {
-                cnn = new Conexion();
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(RegistroSVT.class.getName()).log(Level.SEVERE, null, ex);
-            }
             
-            cnn.ejecutarSQL("insert into clientes values(null,'"
-                    + txtNombre + "','"
-                    + txtAPaterno + "','"
-                    + txtAMaterno + "','"
-                    + txtCalle + "','"
-                    + txtNumeroCasa + "','"
-                    + txtColonia + "','"
-                    + txtCodigoPostal + "','"
-                    + txtNumeroCelular + "')");
-        } catch (SQLException ex) {
+            catalogoCliente = new CatalogoCliente(cnn);
+            
+            catalogoCliente.insertCliente(cliente);
+            
+        } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(RegistroSVT.class.getName()).log(Level.SEVERE, null, ex);
         }
         

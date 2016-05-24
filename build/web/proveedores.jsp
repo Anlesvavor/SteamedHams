@@ -1,9 +1,11 @@
 <%-- 
-    Document   : iniciosesion
-    Created on : 18-may-2016, 8:38:24
+    Document   : proveedores
+    Created on : 23-may-2016, 11:34:43
     Author     : LeJesusjar
 --%>
 
+<%@page import="clases.Conexion"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -78,7 +80,7 @@
               padding: 20px;
               background: #fff;
               border-radius: 5px;
-              width: 30%;
+              width: 50%;
               position: relative;
               transition: all 5s ease-in-out;
             }
@@ -110,7 +112,6 @@
                 border-color: coral;
                 border-collapse: collapse;
                 
-                
             }
             th, td {
                 padding: 5px;
@@ -125,21 +126,42 @@
     <body>
         <div class="fondo">
             <div class="cuerpo">
-                Hola migos
-                <a href="#popup1">desplegar Formularios</a>
-                <p>
-                    Si aun no tiene un cuenta <a href="registro.jsp" target="principal">registrese aquí</a>
-                </p>
+                <center><h2>Proveedores</h2></center>
+                
             </div>
+        </div>
+        
+        <div class="fondo">
+            <div class="cuerpo">
+                <center>
+                    <table>
+                        <tr>
+                            <td>ID Proveedor</td>
+                            <td>Nombre</td>
+                            <td>Producto</td>
+                            <td>Cantidad</td>
+                        <%
+                            ResultSet rs;
+                            Conexion cnn = new Conexion();
+                            
+                            rs = cnn.consultar("select * from proveedores ");
+                            while(rs.next()){
+                                out.println("<tr>");
+                                out.println("<td>" + rs.getString(1) + "</td>");
+                                out.println("<td>" + rs.getString(2) + "</td>");
+                                out.println("<td>" + rs.getString(3) + "</td>");
+                                out.println("<td>" + rs.getString(4) + "</td>");
+                                
+                                out.println("</tr>");
+                            }
+                        %>
+                        
+                    </table>
+                    
+                </center>
+                
             </div>
-            <div id="popup1" class="overlay">
-                <div class="popup">
-                        <h2>Orden</h2>
-                        <a class="close" href="#">×</a>
-                        <div class="content">
-                                [Inserte aquí formulario]
-                        </div>
-                </div>
-            </div>
+        </div>
+        
     </body>
 </html>

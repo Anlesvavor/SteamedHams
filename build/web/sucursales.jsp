@@ -1,9 +1,11 @@
 <%-- 
-    Document   : iniciosesion
-    Created on : 18-may-2016, 8:38:24
+    Document   : menu
+    Created on : 18-may-2016, 8:45:07
     Author     : LeJesusjar
 --%>
 
+<%@page import="clases.Conexion"%>
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -110,7 +112,6 @@
                 border-color: coral;
                 border-collapse: collapse;
                 
-                
             }
             th, td {
                 padding: 5px;
@@ -125,21 +126,44 @@
     <body>
         <div class="fondo">
             <div class="cuerpo">
-                Hola migos
-                <a href="#popup1">desplegar Formularios</a>
-                <p>
-                    Si aun no tiene un cuenta <a href="registro.jsp" target="principal">registrese aquí</a>
-                </p>
+                <center><h2>Sucursales</h2></center>
             </div>
-            </div>
-            <div id="popup1" class="overlay">
-                <div class="popup">
-                        <h2>Orden</h2>
-                        <a class="close" href="#">×</a>
-                        <div class="content">
-                                [Inserte aquí formulario]
-                        </div>
+        </div>    
+            <div class="fondo">
+                <div class="cuerpo">
+                    <center>
+                        <table>
+                            <tr>
+                                <td>ID Sucursal</td>
+                                <td>Nombre</td>
+                                <td>Dirección</td>
+                                <td>Telefono</td>
+                                <td>ID Gerente</td>
+                            </tr>
+                            <%
+                                ResultSet rs;
+                                Conexion cnn = new Conexion();
+
+                                rs=cnn.consultar("Select * from sucursales");
+
+                                while(rs.next()){
+                                    out.println("<tr>");
+                                    out.println("<td>" +rs.getString(1)+ "</td>");
+                                    out.println("<td>" +rs.getString(2)+ "</td>");
+                                    out.println("<td>" +rs.getString(3)+ "</td>");
+                                    out.println("<td>" +rs.getString(4)+ "</td>");
+                                    out.println("<td>" +rs.getString(5)+ "</td>");
+
+                                    out.println("</tr>");
+                                }
+
+                            %>
+                        </table>
+                    </center>
                 </div>
             </div>
+                
+        
+        
     </body>
 </html>

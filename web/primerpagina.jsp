@@ -107,6 +107,19 @@
               max-height: 30%;
               overflow: auto;
             }
+            table{
+                background-color: orange;
+                border-color: coral;
+                border-collapse: collapse;
+                
+            }
+            th, td {
+                padding: 5px;
+            }
+            tr:hover
+            {   
+                background-color: orangered;
+            }
     
         </style>
     </head>
@@ -146,12 +159,12 @@
                                                     <%
                                                         ResultSet rs;
                                                         Conexion cnn = new Conexion();
-                                                        rs = cnn.consultar("select NomPlato from platillos");
+                                                        rs = cnn.consultar("select * from platillos");
                                                         //REcorrer el result set para desplegar el resultado de la
                                                         //consulta
                                                         while(rs.next()){
                                                             
-                                                            out.println("<option value=\"" + rs.getString(1) +"\">" + rs.getString(1)+ "</option>");
+                                                            out.println("<option value=\"" + rs.getString(1) +"\">" + rs.getString(3)+ "</option>");
                                                             
                                                         }
 

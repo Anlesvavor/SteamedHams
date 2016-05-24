@@ -105,6 +105,20 @@
               max-height: 30%;
               overflow: auto;
             }
+            table{
+                background-color: orange;
+                border-color: coral;
+                border-collapse: collapse;
+                
+                
+            }
+            th, td {
+                padding: 5px;
+            }
+            tr:hover
+            {   
+                background-color: orangered;
+            }
     
         </style>
     </head>

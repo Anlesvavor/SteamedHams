@@ -47,14 +47,9 @@ public class OrdenSVT extends HttpServlet {
             //processRequest(request, response);
             //JOptionPane.showMessageDialog(null, txtPlatillo);
             cnn = new Conexion();
-            ResultSet resultado;
             
-            String txtPlatillo = request.getParameter("txtPlatillo");
-            int intCantidad = Integer.parseInt(request.getParameter("intCantidad"));
-            
-            
-            resultado = cnn.consultar("select idPlatillo from platillos where NomPlato = "+ "'" + txtPlatillo + "'");
-            String idPlatillo = resultado.getString(1);
+            String idPlatillo = request.getParameter("txtPlatillo");
+            String intCantidad = request.getParameter("intCantidad");
             
             cnn.ejecutarSQL("insert into ordenes values(" +
                     "4" + "," +

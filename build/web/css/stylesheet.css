@@ -1,17 +1,10 @@
-<%-- 
-    Document   : iniciosesion
-    Created on : 18-may-2016, 8:38:24
-    Author     : LeJesusjar
---%>
+/* 
+    Created on : 21/05/2016, 04:40:52 PM
+    Author     : Sebas
+*/
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <style type="text/css">
-            .boton1
+/* Estilo de index */
+.boton1
             {
                 margin: 20px;
                 background-color:#ff0000;
@@ -78,7 +71,7 @@
               padding: 20px;
               background: #fff;
               border-radius: 5px;
-              width: 30%;
+              width: 50%;
               position: relative;
               transition: all 5s ease-in-out;
             }
@@ -105,41 +98,3 @@
               max-height: 30%;
               overflow: auto;
             }
-            table{
-                background-color: orange;
-                border-color: coral;
-                border-collapse: collapse;
-                
-                
-            }
-            th, td {
-                padding: 5px;
-            }
-            tr:hover
-            {   
-                background-color: orangered;
-            }
-    
-        </style>
-    </head>
-    <body>
-        <div class="fondo">
-            <div class="cuerpo">
-                Hola migos
-                <a href="#popup1">desplegar Formularios</a>
-                <p>
-                    Si aun no tiene un cuenta <a href="registro.jsp" target="principal">registrese aquí</a>
-                </p>
-            </div>
-            </div>
-            <div id="popup1" class="overlay">
-                <div class="popup">
-                        <h2>Orden</h2>
-                        <a class="close" href="#">×</a>
-                        <div class="content">
-                                [Inserte aquí formulario]
-                        </div>
-                </div>
-            </div>
-    </body>
-</html>
