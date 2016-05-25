@@ -136,7 +136,7 @@
                 <h3>Clientes</h3>
                 <form name="BuscarCliente" method="post" action="">
                     Buscar Cliente...
-                    <input name="txtBuscar" type="text" >
+                    <input name="txtBuscarCliente" type="text" >
                 </form>
                 <table>
                     <tr>
@@ -156,15 +156,11 @@
                     Conexion cnn = new Conexion();
                     
                     rs = cnn.consultar("select * from clientes where "
-                            + "Nombre like '%"+ request.getParameter("txtBuscar") +"%'"
-                            + "OR IdCliente like '%"+ request.getParameter("txtBuscar") +"%'"
-                            + "OR APaterno like '%"+ request.getParameter("txtBuscar") +"%'"
-                            + "OR AMaterno like '%"+ request.getParameter("txtBuscar") +"%'"
-                            + "OR Calle like '%"+ request.getParameter("txtBuscar") +"%'"
-                            + "OR Numero_casa like '%"+ request.getParameter("txtBuscar") +"%'"
-                            + "OR Colonia like '%"+ request.getParameter("txtBuscar") +"%'"
-                            + "OR Codigo_postal like '%"+ request.getParameter("txtBuscar") +"%'"
-                            + "OR Celular like '%"+ request.getParameter("txtBuscar") +"%'"
+                            + "Nombre like '%"+ request.getParameter("txtBuscarCliente") +"%'"
+                            + "OR IdCliente like '%"+ request.getParameter("txtBuscarCliente") +"%'"
+                            + "OR APaterno like '%"+ request.getParameter("txtBuscarCliente") +"%'"
+                            + "OR AMaterno like '%"+ request.getParameter("txtBuscarCliente") +"%'"
+
                             );
                     while(rs.next()){
                         out.println("<tr>");
@@ -267,7 +263,7 @@
                 <h3>Ordenes</h3>
                 <form name="BuscarCliente" method="post" action="">
                     Buscar Orden...
-                    <input name="txtBuscar" type="text" >
+                    <input name="txtBuscarOrden" type="text" >
                 </form>
                 <table>
                     <tr>
@@ -280,10 +276,8 @@
 
                     
                     rs = cnn.consultar("select * from ordenes where "
-                            + "idOrden like '%"+ request.getParameter("txtBuscar") +"%'"
-                            + "OR idCliente like '%"+ request.getParameter("txtBuscar") +"%'"
-                            + "OR idPlatillo like '"+ request.getParameter("txtBuscar") +"'"
-                            + "OR cantidad like '"+ request.getParameter("txtBuscar") +"'"
+                            + "idOrden like '"+ request.getParameter("txtBuscarOrden") +"'"
+                            
                             );
                     while(rs.next()){
                         out.println("<tr>");
@@ -361,8 +355,46 @@
         <div class="fondo">
             <div class="cuerpo">
                 <h3>Empleados</h3>
+                
+                <form name="BuscarEmpleado" method="post" action="">
+                    Buscar Empleado...
+                    <input name="txtBuscar" type="text" >
+                </form>
+                <table>
+                    <tr>
+                        <td>idEmpleado</td>
+                        <td>Nombre</td>
+                        <td>Telefono</td>
+                        <td>Puesto</td>
+                        <td>SueldoBase</td>
+                        <td>Bonos</td>
+                        <td>Permiso</td>
+                        <td>idSucursal</td>
+                    </tr>
+                <%
+
+                    
+                    rs = cnn.consultar("select * from empleados where "
+                            + "idEmpleado like '%"+ request.getParameter("txtBuscar") +"%'"
+                            + "OR Nombre like '%"+ request.getParameter("txtBuscar") +"%'"
+                            );
+                    while(rs.next()){
+                        out.println("<tr>");
+                        out.println("<td>" + rs.getString(1) + "</td>");
+                        out.println("<td>" + rs.getString(2) + "</td>");
+                        out.println("<td>" + rs.getString(3) + "</td>");
+                        out.println("<td>" + rs.getString(4) + "</td>");
+                        
+                        out.println("</tr>");
+                        
+                    }
+                %>
+                </table>   
+                
+                <br>
                 <table>
                     <tr>    
+                        <td>IdEmpleado</td>
                         <td>Nombre:</td>
                         <td>Telefono:</td>
                         <td>Puesto:</td>
@@ -428,5 +460,326 @@
                 
             </div>
         </div>
+        <div class="fondo">
+            <div class="cuerpo">
+                <h3>Proveedores</h3>
+                buscar proveedor...
+                <form name="BuscarProveedor">
+                    <input name="txtBuscarProveedor" type="text">
+                </form>
+                <table>
+                    <tr>
+                        <td>IdProvedor</td>
+                        <td>Nombre</td>
+                        <td>Producto</td>
+                        <td>Cantidad</td>
+                    </tr>
+                    <%
+                        rs = cnn.consultar("Select * from proveedores where idProveedor like"+
+                                "'%" + request.getParameter("txtBuscarProveedor") + "%'" +
+                                "OR Nombre like '%" + request.getParameter("txtBuscarProveedor") + "%'"
+                                        );
+                        
+                        while(rs.next()){
+                            out.println("<tr>");
+                            out.println("<td>" + rs.getString(1) + "</td>");
+                            out.println("<td>" + rs.getString(2) + "</td>");
+                            out.println("<td>" + rs.getString(3) + "</td>");
+                            out.println("<td>" + rs.getString(4) + "</td>");
+                            out.println("</tr>");
+                        }
+                            
+                    %>
+                    
+                </table>
+                <br>
+                <table>
+                    <tr>
+                        <td>IdProvedor</td>
+                        <td>Nombre</td>
+                        <td>Producto</td>
+                        <td>Cantidad</td>
+                    </tr>
+                    <%
+                        rs = cnn.consultar("Select * from proveedores");
+                        
+                        while(rs.next()){
+                            out.println("<tr>");
+                            out.println("<td>" + rs.getString(1) + "</td>");
+                            out.println("<td>" + rs.getString(2) + "</td>");
+                            out.println("<td>" + rs.getString(3) + "</td>");
+                            out.println("<td>" + rs.getString(4) + "</td>");
+                            out.println("</tr>");
+                        }
+                    %>
+                    
+                </table>
+                <br>
+                
+                    <form name="proveedores" method="post" action="ProveedoresSVT">
+                        <table>
+                            
+                            <tr>
+                                <td>Nombre:</td>
+                                <td><input name="txtNombre" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td>Producto:</td>
+                                <td><input name="txtProducto" type="text"></td>
+                            </tr>
+                            <tr>
+                                <td>Cantidad:</td>
+                                <td><input name="txtCantidad" type="text"></td>
+                            </tr>
+                            <tr><input type="submit" name="cmd"></tr>
+                        </table>
+
+                    </form>
+            </div>
+        </div>
+                    
+        <div class="fondo">
+            <div class="cuerpo">
+                <h3>Inventarios</h3>
+                
+                <form name="BuscarInventario">
+                    <input name="txtBuscarInventario" type="text">
+                    <table>
+                      <tr>
+                        <td>Id Producto</td>
+                        <td>Producto</td>
+                        <td>descripción</td>
+                        <td>Cantidad</td>
+                    </tr>
+                    
+                    <%
+                        rs = cnn.consultar("Select * from inventario where "+
+                                "idProducto like '" + request.getParameter("txtBuscarInventario") + "'" + 
+                                "OR Producto like '%" + request.getParameter("txtBuscarInventario") + "%'" 
+                                );
+                        while(rs.next()){
+                            out.println("<tr>");
+                            out.println("<td>" + rs.getString(1) + "</td>");
+                            out.println("<td>" + rs.getString(2) + "</td>");
+                            out.println("<td>" + rs.getString(3) + "</td>");
+                            out.println("<td>" + rs.getString(4) + "</td>");
+                            out.println("</tr>");
+                        }
+                    %>
+                </table>
+                </form>
+                
+                <br>
+                <table>
+                    <tr>
+                        <td>Id Producto</td>
+                        <td>Producto</td>
+                        <td>descripción</td>
+                        <td>Cantidad</td>
+                    </tr>
+                    <%
+                        rs= cnn.consultar("Select * from inventario");
+                        
+                        while(rs.next()){
+                            out.println("<tr>");
+                            out.println("<td>" + rs.getString(1) + "</td>");
+                            out.println("<td>" + rs.getString(2) + "</td>");
+                            out.println("<td>" + rs.getString(3) + "</td>");
+                            out.println("<td>" + rs.getString(4) + "</td>");
+                            out.println("</tr>");
+                        }
+                    %>
+                    
+                </table>
+                    <br>
+                
+                    <form name="Inventario" method="post" action="InventarioSVT"> 
+                        <table>
+                            <tr>
+                                <td>Nombre Producto:</td>
+                                <td><input name="txtProducto" type="text" ></td>
+                            </tr>
+                            <tr>
+                                <td>Descripción</td>
+                                <td><input name="txtDescripcion" type="text" ></td>
+                            </tr>
+                            <tr>
+                                <td>Cantidad</td>
+                                <td><input name="intCantidad" type="text" ></td>
+                            </tr>
+                            <tr>
+                                <input name="cmd" type="submit">
+                            </tr>
+                        </table>
+                    </form>
+            </div>
+        </div>
+        <div class="fondo">
+            <div class="cuerpo">
+                <h2>Platillos</h2>
+                <form name="BuscarPlatillo">
+                    <input type="text" name="txtBuscarPlatillo">
+                </form>
+                <table>
+                    <tr> 
+                        <td>IdPlatillo</td>
+                        <td>Tipo</td>
+                        <td>Nombre del Plato</td>
+                        <td>Descripción</td>
+                        <td>Precio</td>
+                    </tr>
+                    <%
+                        rs = cnn.consultar("Select * from platillos where "
+                                + "idPlatillo like '" + request.getParameter("txtBuscarPlatillo") + "' "
+                                + "OR NomPlato like '%" + request.getParameter("txtBuscarPlatillo") + "%' "
+                                + "OR Descripcion like '%" + request.getParameter("txtBuscarPlatillo") + "%'");
+
+                        while(rs.next()){
+                            out.println("<tr>");
+                            out.println("<td>" + rs.getString(1) + "</td>");
+                            out.println("<td>" + rs.getString(2) + "</td>");
+                            out.println("<td>" + rs.getString(3) + "</td>");
+                            out.println("<td>" + rs.getString(4) + "</td>");
+                            out.println("<td>" + rs.getString(5) + "</td>");
+                            out.println("</tr>");
+                        }
+                    %>
+                </table>
+                <br>
+
+                <table>
+                    <tr> 
+                        <td>IdPlatillo</td>
+                        <td>Tipo</td>
+                        <td>Nombre del Plato</td>
+                        <td>Descripción</td>
+                        <td>Precio</td>
+                    </tr>
+                    <%
+                        rs = cnn.consultar("Select * from platillos");
+
+                        while(rs.next()){
+
+                            out.println("<tr>");
+                            out.println("<td>" + rs.getString(1) + "</td>");
+                            out.println("<td>" + rs.getString(2) + "</td>");
+                            out.println("<td>" + rs.getString(3) + "</td>");
+                            out.println("<td>" + rs.getString(4) + "</td>");
+                            out.println("<td>" + rs.getString(5) + "</td>");
+                            out.println("</tr>");
+                        }
+                    %>
+                </table>
+                <br>
+                <form name="platillos" method="post" action="PlatilloSVT">
+                    <table>
+                        <tr>
+                            <td>Tipo:</td>
+                            <td><input name="txtTipo" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Nombre del Plato:</td>
+                            <td><input name="txtNomPlato" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Descripción:</td>
+                            <td><input name="txtDescripcion" type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Precio</td>
+                            <td><input name="intPrecio" type="text"></td>
+                        </tr>
+                        <tr>
+                            <input type="submit" name="cmd">
+                        </tr>
+                    </table>
+                </form>
+
+            </div>
+        </div>
+        <div class="fondo">
+            <div class="cuerpo">
+                <h2>Sucursales</h2>
+                <form name="BuscarSucursales">
+                    <input name="txtBuscarSucursales" type="text">
+                </form>
+                <table>
+                    <tr>
+                        <td>Id Sucursal</td>
+                        <td>Nombre</td>
+                        <td>Dirección</td>
+                        <td>Telefono</td>
+                        <td>Id Gerente</td>
+                    </tr>
+                    <%
+                        rs = cnn.consultar("Select * from sucursales where "
+                                + "Nombre like '%" + request.getParameter("txtBuscarSucursales") + "%' "
+                                + "OR Direcion like '%" + request.getParameter("txtBuscarSucursales") + "%'" );
+
+                        while(rs.next()){
+                            out.println("<tr>");
+                            out.println("<td>" + rs.getString(1) + "</td>");
+                            out.println("<td>" + rs.getString(2) + "</td>");
+                            out.println("<td>" + rs.getString(3) + "</td>");
+                            out.println("<td>" + rs.getString(4) + "</td>");
+                            out.println("<td>" + rs.getString(5) + "</td>");
+                            out.println("</tr>");
+                        }
+                    %>
+                </table>
+               
+                <br>
+                <table>
+                    <tr>
+                        <td>Id Sucursal</td>
+                        <td>Nombre</td>
+                        <td>Dirección</td>
+                        <td>Telefono</td>
+                        <td>Id Gerente</td>
+                    </tr>
+                    <%
+                        rs = cnn.consultar("Select * from sucursales");
+
+                        while(rs.next()){
+
+                            out.println("<tr>");
+                            out.println("<td>" + rs.getString(1) + "</td>");
+                            out.println("<td>" + rs.getString(2) + "</td>");
+                            out.println("<td>" + rs.getString(3) + "</td>");
+                            out.println("<td>" + rs.getString(4) + "</td>");
+                            out.println("<td>" + rs.getString(5) + "</td>");
+                            out.println("</tr>");
+                        }
+                    %>
+                </table>
+                <br>
+                <form name="Sucursal" method="post" action="SucursalSVT">
+                    <table>
+                        <tr>
+                            <td>Nombre:</td>
+                            <td><input type="text" name="txtNombre"</td>
+                        </tr>
+                        <tr>
+                            <td>Dirección:</td>
+                            <td><input type="text" name="txtDireccion"</td>
+                        </tr>
+                        <tr>
+                            <td>Telefono:</td>
+                            <td><input type="text" name="txtTelefono"</td>
+                        </tr>
+                        <tr>
+                            <td>ID Gerente:</td>
+                            <td><input type="text" name="intGerente"</td>
+                        </tr>
+                        
+                        <tr>
+                            <input type="submit" name="cmd">
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+                    
+           
     </body>
 </html>

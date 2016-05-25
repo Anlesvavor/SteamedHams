@@ -136,7 +136,7 @@
                 <center>
                     <table>
                         <tr>
-                            <td>ID Proveedor</td>
+                            
                             <td>Nombre</td>
                             <td>Producto</td>
                             <td>Cantidad</td>
@@ -147,7 +147,7 @@
                             rs = cnn.consultar("select * from proveedores ");
                             while(rs.next()){
                                 out.println("<tr>");
-                                out.println("<td>" + rs.getString(1) + "</td>");
+                                
                                 out.println("<td>" + rs.getString(2) + "</td>");
                                 out.println("<td>" + rs.getString(3) + "</td>");
                                 out.println("<td>" + rs.getString(4) + "</td>");
