@@ -134,11 +134,11 @@
                     <center>
                         <table>
                             <tr>
-                                <td>ID Sucursal</td>
+                                
                                 <td>Nombre</td>
                                 <td>Dirección</td>
                                 <td>Telefono</td>
-                                <td>ID Gerente</td>
+                                
                             </tr>
                             <%
                                 ResultSet rs;
@@ -148,11 +148,11 @@
 
                                 while(rs.next()){
                                     out.println("<tr>");
-                                    out.println("<td>" +rs.getString(1)+ "</td>");
+                                    
                                     out.println("<td>" +rs.getString(2)+ "</td>");
                                     out.println("<td>" +rs.getString(3)+ "</td>");
                                     out.println("<td>" +rs.getString(4)+ "</td>");
-                                    out.println("<td>" +rs.getString(5)+ "</td>");
+                                    
 
                                     out.println("</tr>");
                                 }

@@ -132,6 +132,39 @@
             <div class="fondo">
                 <div class="cuerpo">
                     <center>
+                    <h2>Platillos</h2>
+                <form name="BuscarPlatillo">
+                    <input type="text" name="txtBuscarPlatillo">
+                </form>
+                <table>
+                    <tr> 
+                        <td>IdPlatillo</td>
+                        <td>Tipo</td>
+                        <td>Nombre del Plato</td>
+                        <td>Descripción</td>
+                        <td>Precio</td>
+                    </tr>
+                    <%
+                                ResultSet rs;
+                                Conexion cnn = new Conexion();
+                                
+                                rs = cnn.consultar("Select * from platillos where "
+                                + "idPlatillo like '" + request.getParameter("txtBuscarPlatillo") + "' "
+                                + "OR NomPlato like '%" + request.getParameter("txtBuscarPlatillo") + "%' "
+                                + "OR Descripcion like '%" + request.getParameter("txtBuscarPlatillo") + "%'");
+
+                        while(rs.next()){
+                            out.println("<tr>");
+                            out.println("<td>" + rs.getString(1) + "</td>");
+                            out.println("<td>" + rs.getString(2) + "</td>");
+                            out.println("<td>" + rs.getString(3) + "</td>");
+                            out.println("<td>" + rs.getString(4) + "</td>");
+                            out.println("<td>" + rs.getString(5) + "</td>");
+                            out.println("</tr>");
+                        }
+                    %>
+                </table>   
+                <br>
                         <table>
                             <tr>
                                 <td># Platillo</td>
@@ -142,8 +175,7 @@
                             </tr>
 
                             <%
-                                ResultSet rs;
-                                Conexion cnn = new Conexion();
+
 
                                 rs=cnn.consultar("Select * from platillos");
 

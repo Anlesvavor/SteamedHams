@@ -21,7 +21,8 @@ import javax.swing.JOptionPane;
 public class OrdenSVT extends HttpServlet {
 
     private Conexion cnn;
-    
+    private Orden orden;
+    private CatalogoOrden catalogoOrden;
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -47,15 +48,18 @@ public class OrdenSVT extends HttpServlet {
             //processRequest(request, response);
             //JOptionPane.showMessageDialog(null, txtPlatillo);
             cnn = new Conexion();
+            orden = new Orden();
             
-            String idPlatillo = request.getParameter("txtPlatillo");
-            String intCantidad = request.getParameter("intCantidad");
+            orden.setIdOrden(0);
+            orden.setIdCliente(0);
+            orden.setIdPlatillo(Integer.parseInt(request.getParameter("txtPlatillo")));
+            orden.setCantidad(Integer.parseInt(request.getParameter("intCantidad")));
             
             cnn.ejecutarSQL("insert into ordenes values(" +
-                    "4" + "," +
-                    "4" + "," +
-                    idPlatillo + "," +
-                    intCantidad + ")"        
+                    orden.getIdOrden() + "," +
+                    orden.getIdCliente() + "," +
+                    orden.getIdPlatillo() + "," +
+                    orden.getCantidad() + ")"        
             );
             
         } catch (ClassNotFoundException | SQLException ex) {

@@ -21,6 +21,8 @@ public class CatalogoCliente {
         cnn.ejecutarSQL(
                 "insert into clientes values("
                 +"null" + ","
+                + "'" + cliente.getUsuario() + "',"
+                + "'" + cliente.getContrasena() + "',"
                 + "'" + cliente.getNombre() + "',"
                 + "'" + cliente.getaPaterno() + "',"
                 + "'" + cliente.getaMaterno() + "',"

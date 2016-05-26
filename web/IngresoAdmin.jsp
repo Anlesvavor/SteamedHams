@@ -1,17 +1,15 @@
 <%-- 
-    Document   : menu
-    Created on : 18-may-2016, 8:45:07
+    Document   : IngresoAdmin
+    Created on : 25-may-2016, 8:07:01
     Author     : LeJesusjar
 --%>
 
-<%@page import="clases.Conexion"%>
-<%@page import="java.sql.ResultSet"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
         <style type="text/css">
             .boton1
             {
@@ -80,7 +78,7 @@
               padding: 20px;
               background: #fff;
               border-radius: 5px;
-              width: 30%;
+              width: 50%;
               position: relative;
               transition: all 5s ease-in-out;
             }
@@ -126,44 +124,20 @@
     <body>
         <div class="fondo">
             <div class="cuerpo">
-                <center><h2>Sucursales</h2></center>
-            </div>
-        </div>    
-            <div class="fondo">
-                <div class="cuerpo">
-                    <center>
-                        <table>
-                            <tr>
-                                
-                                <td>Nombre</td>
-                                <td>Dirección</td>
-                                <td>Telefono</td>
-                                
-                            </tr>
-                            <%
-                                ResultSet rs;
-                                Conexion cnn = new Conexion();
-
-                                rs=cnn.consultar("Select * from sucursales");
-
-                                while(rs.next()){
-                                    out.println("<tr>");
-                                    
-                                    out.println("<td>" +rs.getString(2)+ "</td>");
-                                    out.println("<td>" +rs.getString(3)+ "</td>");
-                                    out.println("<td>" +rs.getString(4)+ "</td>");
-                                    
-
-                                    out.println("</tr>");
-                                }
-
-                            %>
-                        </table>
-                    </center>
-                </div>
-            </div>
+                <form name="Ingreso" action="intermedio.jsp">
+                    Usuario:
+                    <br>
+                    <input name="txtUsuario" type="text">
+                    <br>
+                    Contrasena:
+                    <br>
+                    <input name="txtContrasena" type="password">
+                    <br>
+                    <input name="cmd" type="submit">
+                </form>
                 
-        
-        
+                    
+            </div>
+        </div>
     </body>
 </html>

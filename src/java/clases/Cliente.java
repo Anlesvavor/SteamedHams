@@ -10,6 +10,8 @@ public class Cliente {
     public Cliente(){}
     
     int idCliente;
+    String usuario;
+    String contrasena;
     String nombre;
     String aPaterno;
     String aMaterno;
@@ -19,6 +21,22 @@ public class Cliente {
     String codigoPostal;
     String celular;
 
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+    
     public int getIdCliente() {
         return idCliente;
     }

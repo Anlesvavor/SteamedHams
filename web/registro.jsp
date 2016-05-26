@@ -123,6 +123,14 @@
 
                     <table>
                         <tr>
+                            <td>Nombre de Usuario:</td>
+                            <td><input type="text" name="txtUsuario" /></td>
+                        </tr>
+                        <tr>
+                            <td>Contraseña</td>
+                            <td><input type="text" name="txtContrasena" /></td>
+                        </tr>
+                        <tr>
                             <td>Nombre:</td>
                             <td><input type="text" name="txtNombre" /></td>
                         </tr>

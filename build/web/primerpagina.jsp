@@ -4,6 +4,10 @@
     Author     : LeJesusjar
 --%>
 
+<%@page import="javax.swing.JOptionPane"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="clases.Conexion"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -137,8 +141,36 @@
                 
             <center>
                 <h1>Steamed hams!</h1>
-                <a href="#popup1" target="principal"><button class="boton1"  >Ordene aquí</button></a>
                 
+                <a href="#popup1" target="principal"><button class="boton1"  >Ordene aquí</button></a>
+                <div class="fondo">
+            <div class="cuerpo">
+                Hola migos
+                <a href="#popup2">desplegar Formularios</a>
+                <p>
+                    Si aun no tiene un cuenta <a href="registro.jsp" target="principal">registrese aquí</a>
+                </p>
+                </div>
+                </div>
+                <div id="popup2" class="overlay">
+                    <div class="popup">
+                            <h2>Inicio de sesion</h2>
+                            <a class="close" href="#">×</a>
+                            <div class="content">
+                                <form name="IniciSesion" method="post" action="login.jsp">
+                                    <table>
+                                        <tr style="text-align: center">
+                                            <td>Usuario:</td><td><input name="txtUsuario"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Contraseña:</td><td><input name="txtContrasena"></td>
+                                        </tr>
+                                    </table>
+                                    <input name="cmd" value="Iniciar Sesion" type="submit">
+                                </form>
+                            </div>
+                    </div>
+                </div>
             </center>
             </div>
             <div id="popup1" class="overlay">

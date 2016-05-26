@@ -128,6 +128,7 @@
         <div class="fondo">
             <div class="cuerpo">
                 <h2> Administración del sitio </h2>
+
             </div>
         </div>
         <div class="fondo">
@@ -141,6 +142,8 @@
                 <table>
                     <tr>
                         <td>IdCLiente</td>
+                        <td>Usuario</td>
+                        <td>Contraseña</td>
                         <td>Nombre</td>
                         <td>APaterno</td>
                         <td>AMterno</td>
@@ -173,7 +176,8 @@
                         out.println("<td>" + rs.getString(7) + "</td>");
                         out.println("<td>" + rs.getString(8) + "</td>");
                         out.println("<td>" + rs.getString(9) + "</td>");
-                        
+                        out.println("<td>" + rs.getString(10) + "</td>");
+                        out.println("<td>" + rs.getString(11) + "</td>");
                         out.println("</tr>");
                         
                     }
@@ -183,6 +187,8 @@
                 <table>
                     <tr>
                         <td>IdCLiente</td>
+                        <td>Usuario</td>
+                        <td>Contraseña</td>
                         <td>Nombre</td>
                         <td>APaterno</td>
                         <td>AMterno</td>
@@ -208,6 +214,8 @@
                             out.println("<td>" + rs.getString(7) + "</td>");
                             out.println("<td>" + rs.getString(8) + "</td>");
                             out.println("<td>" + rs.getString(9) + "</td>");
+                            out.println("<td>" + rs.getString(10) + "</td>");
+                            out.println("<td>" + rs.getString(11) + "</td>");
                             out.println("</tr>");
                         }
                     %>
@@ -218,6 +226,14 @@
                 <form name="registro" method="post" action="RegistroSVT">
 
                     <table>
+                         <tr>
+                            <td>Nombre de Usuario:</td>
+                            <td><input type="text" name="txtUsuario" /></td>
+                        </tr>
+                        <tr>
+                            <td>Contraseña</td>
+                            <td><input type="text" name="txtContrasena" /></td>
+                        </tr>
                         <tr>
                             <td>Nombre:</td>
                             <td><input type="text" name="txtNombre" /></td>
@@ -301,7 +317,7 @@
                     </tr>
                     <%
                         
-                        rs = cnn.consultar("select * from ordenes");
+                        rs = cnn.consultar("select from ordenes join clientes on clientes.Idcliente = ordenes.Idcliente");
                         
                         while(rs.next()){
                             out.println("<tr>");
@@ -778,8 +794,6 @@
                     </table>
                 </form>
             </div>
-        </div>
-                    
-           
+        </div>       
     </body>
 </html>

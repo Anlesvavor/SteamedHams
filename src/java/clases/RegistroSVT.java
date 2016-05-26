@@ -62,6 +62,8 @@ public class RegistroSVT extends HttpServlet {
             cnn = new Conexion();
             cliente = new Cliente();
             //processRequest(request, response);
+            cliente.setUsuario(request.getParameter("txtUsuario"));
+            cliente.setContrasena(request.getParameter("txtContrasena"));
             cliente.setNombre(request.getParameter("txtNombre"));
             cliente.setaPaterno(request.getParameter("txtAPaterno"));
             cliente.setaMaterno(request.getParameter("txtAMaterno"));

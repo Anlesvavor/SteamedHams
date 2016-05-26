@@ -4,6 +4,9 @@
     Author     : LeJesusjar
 --%>
 
+<%@page import="clases.Conexion"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.lang.String"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -100,12 +103,13 @@
     </head>
     <body class="fondo">
         <a href="primerpagina.jsp" target="principal" ><button class="bonton" >Inicio</button></a>
-        <a href="ordenes.jsp" target="principal" ><button class="bonton" >Ordenes</button></a>
-        <a href="pruebapopup.jsp" target="principal" ><button class="bonton" >prueba del popup</button></a>
-        <a href="iniciosesion.jsp" target="principal" ><button class="bonton" >Inicio de sesión</button></a>
+        
+        
+        
         <a href="menu.jsp" target="principal" ><button class="bonton" >Menú</button></a>
-        <a href="proveedores.jsp" target="principal" ><button class="bonton">Proveedores</button></a>
+        
         <a href="sucursales.jsp" target="principal" ><button class="bonton">Sucursales</button></a>
-        <a href="administracion.jsp" target="principal" ><button class="bonton">Administración</button></a>
+        <a href="IngresoAdmin.jsp" target="principal" ><button class="bonton">Administración</button></a>
+        
     </body>
 </html>
