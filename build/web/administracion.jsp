@@ -317,7 +317,7 @@
                     </tr>
                     <%
                         
-                        rs = cnn.consultar("select from ordenes join clientes on clientes.Idcliente = ordenes.Idcliente");
+                        rs = cnn.consultar("select *  from ordenes");
                         
                         while(rs.next()){
                             out.println("<tr>");
